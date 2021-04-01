@@ -1,4 +1,7 @@
-# tasklist_mern
+# TASK LIST
+[MySQL + EXPRESS + REACT + NODE.JS]
 
-Projeto React + Node.JS + MySql (RESTful API)
+This project it's a simple task list using react js + server node.js
+You can create, read, update and delete tasks from database
+
 

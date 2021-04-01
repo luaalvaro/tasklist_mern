@@ -4,34 +4,34 @@ import Task from '../models/Tasks.js';
     export const getAllTasks = (req, res) => {
         Task.findAll()
         .then((response) => res.status(200).json({ response }))
-        .catch((error) => res.status(500).json({ message: error.message }))
+        .catch((error) => res.status(404).json({ message: error.message }))
     }
 
     // CREATE AN NEW TASK FROM DATABASE
     export const createNewTask = async (req, res) => {
-        let { name, description = "" } = req.body
+        let { title, description = "" } = req.body
 
         Task.create({
-            name,
+            title,
             description
         })
-        .then((response) => res.status(201).json({ message: `Task with name ${name} was created sucessfully` }))
-        .catch((error) => res.status(500).json({ error: error.message }))
+        .then((response) => res.status(201).json({ message: `Task with title ${title} was created sucessfully` }))
+        .catch((error) => res.status(404).json({ error: error.message }))
     }
 
     // UPDATE TASK FROM DATABASE
     export const updateTask = async (req, res) => {
         const { id } = req.params
-        let { name, status, description, updateTask = {} } = req.body
+        let { title, status, description, updateTask = {} } = req.body
         
         // Check if the request have the params
-        if (name) updateTask.name = name
+        if (title) updateTask.title = title
         if (status) updateTask.status = status
         if (description) updateTask.description = description
 
         Task.update(updateTask, { where: { id: id } })
-        .then((response) => res.status(201).json({ message: `Task ${name} has been updated` }))
-        .catch((error) => res.status(500).json({ error: error.message }))
+        .then((response) => res.status(201).json({ message: `Task ${id} has been updated` }))
+        .catch((error) => res.status(404).json({ error: error.message }))
     }
 
     // DELETE TASK FROM DATABASE
@@ -43,5 +43,5 @@ import Task from '../models/Tasks.js';
 
         Task.destroy({ where: { id: id }})
         .then((response) => res.status(201).json({ message: `Task with id: ${id} has been deleted` }))
-        .catch((error) => res.status(500).json({ error: error.message }))
+        .catch((error) => res.status(404).json({ error: error.message }))
     }

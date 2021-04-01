@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import sequelize from '../database/dbConnection.js';
 
 const Task =  sequelize.define('Task', {
-    name: {
+    title: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -18,7 +18,7 @@ const Task =  sequelize.define('Task', {
 });
 
 // << IMPORTANT >>
-//  Task.sync({})
+//  Task.sync({ force: true })
 // The sync func its used to create a new table, this code must be runned once
 
 export default Task;
