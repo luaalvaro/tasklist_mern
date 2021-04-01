@@ -1,14 +1,14 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
+import tasksRouter from '../server/src/routes/tasks.js';
+import secrets from './config.local.js';
 
-dotenv.config({ path: '.env.local' });
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT =  secrets.PORT || 3030;
 
 app.use(express.json({ type: "application/json" }));
 app.use(cors());
 
-app.use('/tasks/', require('./src/routes/tasks'));
+app.use('/tasks/', tasksRouter);
 
 app.listen(PORT, console.log(`Server is running at http://localhost:${PORT}/`));
