@@ -10,10 +10,10 @@ const Task =  sequelize.define('Task', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    status: {
-        type: Sequelize.BOOLEAN,
+    list: {
+        type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: 0
+        defaultValue: 'Em aberto'
     }
 });
 

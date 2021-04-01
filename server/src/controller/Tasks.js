@@ -22,11 +22,10 @@ import Task from '../models/Tasks.js';
     // UPDATE TASK FROM DATABASE
     export const updateTask = async (req, res) => {
         const { id } = req.params
-        let { title, status, description, updateTask = {} } = req.body
+        let { title, description, updateTask = {} } = req.body
         
         // Check if the request have the params
         if (title) updateTask.title = title
-        if (status) updateTask.status = status
         if (description) updateTask.description = description
 
         Task.update(updateTask, { where: { id: id } })
