@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { MdAdd } from 'react-icons/md'
 import { Container } from './styles'
 
 export default function Header() {
@@ -9,7 +8,7 @@ export default function Header() {
             <Container>
                 <h1>Tasks</h1>
                 <button type="button">
-                    <MdAdd />
+                    +
                 </button>
             </Container>
         </>

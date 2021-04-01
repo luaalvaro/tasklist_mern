@@ -1,27 +1,19 @@
 import React from 'react';
-import { useDrag } from 'react-dnd';
 
 import { Container, Label } from './styles'
 
-export default function Card() {
-
-    const [{ isDragging }, dragRef] = useDrag({
-        type: 'CARD',
-        collect: monitor => ({
-            isDragging: monitor.isDragging(),
-        }),
-    });
+export default function Card(props) {
 
     return (
         <>
-            <Container ref={dragRef} isDragging={isDragging}>
-                <div>
+            <Container>
+                <div id={props.keyValue}>
                     <header>
-                        <Label color="red" />
+                        <Label color={props.color} />
                     </header>
 
-                    <span>Title do card</span>
-                    <p>Description do card</p>
+                    <span>{props.title}</span>
+                    <p>{props.description}</p>
                 </div>
             </Container>
         </>

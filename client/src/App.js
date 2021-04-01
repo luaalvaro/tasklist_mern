@@ -1,18 +1,20 @@
 import React from 'react';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { initialData } from './services/Tasks';
 
 import GlobalStyle from './styles/global';
-import Header from './components/Header'
-import Board from './components/Board'
+import Header from './components/Header';
+import Board from './components/Board';
 
 const App = () => {
+
+    let data = initialData;
+    
     return (
-        <DndProvider backend={HTML5Backend}>
+        <>
             <Header />
-            <Board />
+            <Board data={data}/>
             <GlobalStyle />
-        </DndProvider>
+        </>
     )
 }
 

@@ -18,6 +18,7 @@ export const Container = styled.div`
 
     span {
         font-weight: bold;
+        font-size: 14px;
     }
 
     p {
@@ -45,5 +46,5 @@ export const Label = styled.span`
     height: 10px;
     border-radius: 3px;
     display: inline-block;
-    background: ${props => props.color}
+    background-color: ${props => props.color}
 `
