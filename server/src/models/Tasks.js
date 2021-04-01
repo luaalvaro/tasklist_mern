@@ -12,7 +12,8 @@ const Task =  sequelize.define('Task', {
     },
     status: {
         type: Sequelize.BOOLEAN,
-        default: false
+        allowNull: false,
+        defaultValue: 0
     }
 });
 
