@@ -4,6 +4,7 @@ export const Container = styled.div`
     padding: 0 15px;
     height: 100%;
     flex: 0 0 320px;
+    opacity: ${props => props.done ? .5 : 1};
 
     & + div {
         border-left: 1px solid #e1e1e1;
@@ -19,15 +20,6 @@ export const Container = styled.div`
         h2 {
             font-size: 16px;
             padding 0 10px;
-        }
-
-        button {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            background-color: #40508b;
-            border: 0;
-            cursor: pointer;
         }
 
         ul {

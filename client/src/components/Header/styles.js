@@ -7,4 +7,18 @@ export const Container = styled.div`
     color: #fff;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    button {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 0;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #f8f8f8;
+    }
 `

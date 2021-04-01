@@ -1,25 +1,18 @@
 import React from 'react';
 
-import { MdAdd } from 'react-icons/md'
-import { Container } from './styles'
 import Card from '../Card'
+import { Container } from './styles'
 
-export default function Header() {
+export default function List(props) {
     return (
         <>
-            <Container>
+            <Container done={props.done}>
                 <header>
-                    <h2>Tarefas</h2>
-                    <button type="button">
-                        <MdAdd size="24" color="fff"/>
-                    </button>
+                    <h2>{props.title}</h2>
                 </header>
 
                 <ul>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    <Card/>
                 </ul>
             </Container>
         </>
