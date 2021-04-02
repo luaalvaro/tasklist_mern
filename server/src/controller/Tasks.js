@@ -9,11 +9,13 @@ import Task from '../models/Tasks.js';
 
     // CREATE AN NEW TASK FROM DATABASE
     export const createNewTask = async (req, res) => {
-        let { title, description = "" } = req.body
+        let { title, description = "", color, columnId } = req.body
 
         Task.create({
             title,
-            description
+            description,
+            color,
+            columnId
         })
         .then((response) => res.status(201).json({ message: `Task with title ${title} was created sucessfully` }))
         .catch((error) => res.status(404).json({ error: error.message }))

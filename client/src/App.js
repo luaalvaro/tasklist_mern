@@ -1,18 +1,24 @@
-import React from 'react';
-import { initialData } from './services/Tasks';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import GlobalStyle from './styles/global';
 import Header from './components/Header';
 import Board from './components/Board';
 
-const App = () => {
+import { getTasks } from './actions/tasks'
 
-    let data = initialData;
+const App = () => {
+    
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getTasks());
+    }, [dispatch]);
 
     return (
         <>
             <Header />
-            <Board data={data}/>
+            <Board />
             <GlobalStyle />
         </>
     )

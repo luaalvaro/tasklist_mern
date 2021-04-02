@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { Container } from './styles'
 
@@ -14,22 +15,28 @@ export default function Board(props) {
         column4: [],
     }
 
-    props.data.tasks.map(task => {
-        if (task.columnId === '1') return data.column1.push(task);
-        if (task.columnId === '2') return data.column2.push(task);
-        if (task.columnId === '3') return data.column3.push(task);
-        if (task.columnId === '4') return data.column4.push(task);
+    const tasks = useSelector((state) => state.tasks);
+    
+    try {
+        tasks.response.map(task => {
+            if (task.columnId === '1') return data.column1.push(task);
+            if (task.columnId === '2') return data.column2.push(task);
+            if (task.columnId === '3') return data.column3.push(task);
+            if (task.columnId === '4') return data.column4.push(task);
+        })
+    } catch (error) {
+        
+    }
 
-        return task;
-    })
+
 
     return (
         <>
             <Container>
-                <List title="Em aberto" keyValue={props.data.tasks[0].id} data={data.column1} />
-                <List title="Em produção" keyValue={props.data.tasks[1].id} data={data.column2} />
-                <List title="Em revisão" keyValue={props.data.tasks[2].id} data={data.column3} />
-                <List title="Concluído" keyValue={props.data.tasks[3].id} data={data.column4} />
+                <List title="Em aberto" data={data.column1} />
+                <List title="Em produção" data={data.column2} />
+                <List title="Em revisão" data={data.column3} />
+                <List title="Concluído" data={data.column4} />
             </Container>
         </>
     );

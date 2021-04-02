@@ -4,7 +4,7 @@ import tasksRouter from '../server/src/routes/tasks.js';
 import secrets from './config.local.js';
 
 const app = express();
-const PORT =  secrets.PORT || 3030;
+const PORT =  secrets.PORT || 5000;
 
 app.use(express.json({ type: "application/json" }));
 app.use(cors());

@@ -10,10 +10,12 @@ const Task =  sequelize.define('Task', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    list: {
+    color: {
+        type: Sequelize.STRING
+    },
+    columnId: {
         type: Sequelize.STRING,
-        allowNull: false,
-        defaultValue: 'Em aberto'
+        allowNull: false
     }
 });
 
