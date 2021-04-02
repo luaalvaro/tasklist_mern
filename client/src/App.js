@@ -8,7 +8,7 @@ import Board from './components/Board';
 const App = () => {
 
     let data = initialData;
-    
+
     return (
         <>
             <Header />

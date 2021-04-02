@@ -4,6 +4,7 @@ import { Container } from './styles'
 
 import List from '../List'
 
+
 export default function Board(props) {
 
     let data = {
@@ -14,10 +15,12 @@ export default function Board(props) {
     }
 
     props.data.tasks.map(task => {
-        if (task.columnId === '1') { data.column1.push(task); return; }
-        if (task.columnId === '2') { data.column2.push(task); return; }
-        if (task.columnId === '3') { data.column3.push(task); return; }
-        if (task.columnId === '4') { data.column4.push(task); return; }
+        if (task.columnId === '1') return data.column1.push(task);
+        if (task.columnId === '2') return data.column2.push(task);
+        if (task.columnId === '3') return data.column3.push(task);
+        if (task.columnId === '4') return data.column4.push(task);
+
+        return task;
     })
 
     return (

@@ -22,3 +22,19 @@ export const Container = styled.div`
         background-color: #f8f8f8;
     }
 `
+
+export const HeaderModal = styled.div`
+    display: flex;
+    justify-content: space-between;
+    
+
+    button {
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+`
